@@ -18,14 +18,14 @@ def hello_world():
 @app.route('/todos', methods=['POST'])
 def add_new_todo():
     request_body = request.data
-    print("Incoming request with the following body", request_body)
+    print("Se inserta en todos", request_body)
     decoded_object = json.loads(request_body)
     todos.append(decoded_object)
     return flask.jsonify(todos)
 
 @app.route('/todos/<int:position>', methods=['DELETE'])
 def delete_todo(position):
-    print("This is the position to delete: ",position)
+    print("Se borra la posición: ",position)
     todos.pop(position)
     return flask.jsonify(todos)
 
